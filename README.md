@@ -1,6 +1,6 @@
 # Student Tracker Web Application
 
-A simple Java web application to manage student records using servlets, JSP, and JDBC.
+A simple Java web application to manage student records the main focus to use servlets, JSP, and JDBC.
 
 ## Features
 - List students
