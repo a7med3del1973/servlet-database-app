@@ -25,7 +25,7 @@ A simple Java web application to manage student records the main focus to use se
 
 3. **Running the Application**:
    - Deploy the WAR file to Apache Tomcat.
-   - Access via `http://localhost:8080/StudentControllerServlet`.
+   - Access via `http://localhost:8081/StudentControllerServlet`.
 
 ## License
 MIT License
