@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Ahmed Adel
-  Date: 08/12/2024
-  Time: 04:35
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
@@ -13,6 +6,13 @@
 
     </style>
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script>
+        function confirmDelete(deleteUrl) {
+            if (confirm("Are you sure to delete this student?")) {
+                window.location.href = deleteUrl;
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -37,13 +37,22 @@
     <c:url var="templink" value="StudentControllerServlet">
         <c:param name="command" value="LOAD"/>
         <c:param name="studentId" value="${tempStudent.id}"/>
-
     </c:url>
+
+        <%--    set up the link for delete --%>
+    <c:url var="deletelink" value="StudentControllerServlet">
+        <c:param name="command" value="DELETE"/>
+        <c:param name="studentId" value="${tempStudent.id}"/>
+    </c:url>
+
     <tr>
         <td>${tempStudent.firstName} </td>
         <td>${tempStudent.lastName} </td>
         <td>${tempStudent.email} </td>
-        <td><a href="${templink}">Update</a></td>
+        <td>
+            <a href="${templink}">Update</a>
+            <a href="#" onclick="confirmDelete('${deletelink}'); return false;">| Delete</a>
+        </td>
     </tr>
     </c:forEach>
 </table>
